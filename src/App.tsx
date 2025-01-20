@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
-import "./App.css";
 import PageTitle from "./components/Header";
-import HomePage from "./pages/Home";
+import { Outlet } from "react-router";
+import "./App.css";
 
 function App() {
   return (
@@ -9,10 +9,11 @@ function App() {
       <Navbar />
       <div className="page__content">
         <PageTitle />
-        <HomePage />
+        <Outlet />
       </div>
     </div>
   );
 }
 
 export default App;
+
