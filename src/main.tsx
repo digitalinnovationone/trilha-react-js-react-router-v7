@@ -17,13 +17,13 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
         <Route element={<App />}>
-          <Route path="/" element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path="coupons" element={<CouponsPage />} />
           <Route path="messages" element={<MessagesPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="dashboard" element={<DashboardPage />}>
-            <Route path="orders" element={<OrdersReport />} />
+            <Route index element={<OrdersReport />} />
             <Route path="customers" element={<CustomersReport />} />
           </Route>
         </Route>
