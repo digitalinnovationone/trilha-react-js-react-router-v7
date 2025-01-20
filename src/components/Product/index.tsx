@@ -36,19 +36,17 @@ const Product: FC<Props> = ({ id }) => {
   const { image, title, description, price } = product;
 
   return (
-    <>
-      <h2>Product detail #{id}</h2>
-      <div className="product">
-        <img className="product__image" src={image} alt={title} />
-        <div className="product__details">
-          <h1 className="product__title">{title}</h1>
-          <p className="product__description">{description}</p>
-          <p className="product__price">${price.toFixed(2)}</p>
-          <button>Add to order</button>
-        </div>
+    <div className="product">
+      <img className="product__image" src={image} alt={title} />
+      <div className="product__details">
+        <h1 className="product__title">{title}</h1>
+        <p className="product__description">{description}</p>
+        <p className="product__price">${price.toFixed(2)}</p>
+        <button>Add to order</button>
       </div>
-    </>
+    </div>
   );
 };
 
 export default Product;
+

@@ -11,13 +11,15 @@ import SettingsPage from "./pages/Settings/index.tsx";
 import HomePage from "./pages/Home/index.tsx";
 import OrdersReport from "./components/Dashboard/OrdersReport/index.tsx";
 import CustomersReport from "./components/Dashboard/CustomersReport/index.tsx";
+import ProductPage from "./pages/Product/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route element={<App />}>
-          <Route index element={<HomePage />} />
+          <Route path=":category?/:limit?" element={<HomePage />} />
+          <Route path="product/:id" element={<ProductPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="admin/store">

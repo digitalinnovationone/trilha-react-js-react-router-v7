@@ -3,10 +3,11 @@ import "./styles.css";
 
 type Props = {
   onClick: (category: string) => void;
+  defaultCategory: string;
 };
 
-const Categories: FC<Props> = ({ onClick }) => {
-  const [active, setActive] = useState<string>("all");
+const Categories: FC<Props> = ({ defaultCategory, onClick }) => {
+  const [active, setActive] = useState<string>(defaultCategory);
   const [categories, setCategories] = useState<string[]>(["all"]);
 
   useEffect(() => {
@@ -55,3 +56,4 @@ const Categories: FC<Props> = ({ onClick }) => {
 };
 
 export default Categories;
+

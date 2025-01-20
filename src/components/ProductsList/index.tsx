@@ -6,9 +6,10 @@ import SearchBar from "../SearchBar";
 
 type Props = {
   category: string;
+  limit: number;
 };
 
-const ProductsList: FC<Props> = ({ category }) => {
+const ProductsList: FC<Props> = ({ category, limit }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +20,7 @@ const ProductsList: FC<Props> = ({ category }) => {
     const fetchProducts = async () => {
       const sufixUrl = category !== "all" ? `/category/${category}` : "";
       const result = await fetch(
-        `https://fakestoreapi.com/products${sufixUrl}`
+        `https://fakestoreapi.com/products${sufixUrl}?limit=${limit}`
       );
 
       if (!result.ok) {
@@ -71,3 +72,4 @@ const ProductsList: FC<Props> = ({ category }) => {
 };
 
 export default ProductsList;
+
