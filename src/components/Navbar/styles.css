@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: #1f1d2b;
+  padding: 1.5rem;
+  position: fixed;
+  height: 100vh;
+}
+
+.navbar__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.navbar__icon--active {
+  background-color: #543C3C;
+}

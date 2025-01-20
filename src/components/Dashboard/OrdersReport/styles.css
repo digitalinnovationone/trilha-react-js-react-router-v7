@@ -1,0 +1,74 @@
+.orders-dashboard {
+  padding: 2rem;
+  background-color: #1f1d2b;
+  border-radius: 0.5rem;
+}
+
+.orders-dashboard__title {
+  color: #EA7B69;
+}
+
+.orders-dashboard__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.orders-dashboard__header {
+  padding: 1.5rem 0;
+  text-align: left;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.orders-dashboard__data {
+  padding: 1.5rem 0;
+  text-align: left;
+}
+
+.orders-dashboard__status {
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  text-transform: capitalize;
+}
+
+.orders-dashboard__status--completed {
+  background-color: #6be2be51; 
+  color: #50D1AA;
+}
+
+.orders-dashboard__status--pending {
+  background-color: #ffb6725d;
+  color: #FFB572;
+}
+
+.orders-dashboard__status--preparing {
+  background-color: #9290fe4f;
+  color: #9290FE;
+}
+
+@media (max-width: 768px) {
+  .orders-dashboard__table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .orders-dashboard__row {
+    display: block;
+    margin: 0 0 1rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .orders-dashboard__header {
+    display: none;
+  }
+
+  .orders-dashboard__data {
+    display: block;
+    padding: .5rem 0;
+    text-align: left;
+  }
+}

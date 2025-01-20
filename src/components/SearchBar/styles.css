@@ -1,0 +1,16 @@
+.search {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+.search__icon {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: 0.875rem;
+}
+
+.search__input {
+  padding-left: calc(0.875rem * 2 + 20px);
+  min-width: 300px;
+}

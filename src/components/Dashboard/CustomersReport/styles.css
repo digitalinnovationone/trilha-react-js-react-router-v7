@@ -1,0 +1,53 @@
+.customers-dashboard {
+  padding: 2rem;
+  background-color: #1f1d2b;
+  border-radius: 0.5rem;
+}
+
+.customers-dashboard__title {
+  color: #ea7b69;
+}
+
+.customers-dashboard__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.customers-dashboard__header {
+  padding: 1.5rem 0;
+  text-align: left;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.customers-dashboard__data {
+  padding: 1.5rem 0;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .customers-dashboard__table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .customers-dashboard__row {
+    display: block;
+    margin: 0 0 1rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .customers-dashboard__header {
+    display: none;
+  }
+
+  .customers-dashboard__data {
+    display: block;
+    padding: 0.5rem 0;
+    text-align: left;
+  }
+}

@@ -1,0 +1,22 @@
+.summary-card {
+  background-color: #1f1d2b;
+  padding: 2rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.summary-card__value,
+.summary-card__label {
+  font-weight: 600;
+  margin: 0;
+}
+
+.summary-card__value {
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+.summary-card__label {
+  font-size: 0.875;
+  color: #abbbc2;
+}
