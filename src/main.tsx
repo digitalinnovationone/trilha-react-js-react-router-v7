@@ -12,6 +12,7 @@ import HomePage from "./pages/Home/index.tsx";
 import OrdersReport from "./components/Dashboard/OrdersReport/index.tsx";
 import CustomersReport from "./components/Dashboard/CustomersReport/index.tsx";
 import ProductPage from "./pages/Product/index.tsx";
+import ReportExporterPage from "./pages/ReportExporter/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -29,6 +30,10 @@ createRoot(document.getElementById("root")!).render(
           <Route path="dashboard" element={<DashboardPage />}>
             <Route index element={<OrdersReport />} />
             <Route path="customers" element={<CustomersReport />} />
+            <Route
+              path="reports/export/file/*"
+              element={<ReportExporterPage />}
+            />
           </Route>
         </Route>
       </Routes>
