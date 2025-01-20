@@ -9,6 +9,8 @@ import MessagesPage from "./pages/Messages/index.tsx";
 import NotificationsPage from "./pages/Notifications/index.tsx";
 import SettingsPage from "./pages/Settings/index.tsx";
 import HomePage from "./pages/Home/index.tsx";
+import OrdersReport from "./components/Dashboard/OrdersReport/index.tsx";
+import CustomersReport from "./components/Dashboard/CustomersReport/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -17,10 +19,13 @@ createRoot(document.getElementById("root")!).render(
         <Route element={<App />}>
           <Route path="/" element={<HomePage />} />
           <Route path="coupons" element={<CouponsPage />} />
-          <Route path="dashboard" element={<DashboardPage />} />
           <Route path="messages" element={<MessagesPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="settings" element={<SettingsPage />} />
+          <Route path="dashboard" element={<DashboardPage />}>
+            <Route path="orders" element={<OrdersReport />} />
+            <Route path="customers" element={<CustomersReport />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
