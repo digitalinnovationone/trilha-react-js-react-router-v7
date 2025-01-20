@@ -18,10 +18,12 @@ createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route element={<App />}>
           <Route index element={<HomePage />} />
-          <Route path="coupons" element={<CouponsPage />} />
-          <Route path="messages" element={<MessagesPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="settings" element={<SettingsPage />} />
+          <Route path="admin/store">
+            <Route path="coupons" element={<CouponsPage />} />
+            <Route path="messages" element={<MessagesPage />} />
+          </Route>
           <Route path="dashboard" element={<DashboardPage />}>
             <Route index element={<OrdersReport />} />
             <Route path="customers" element={<CustomersReport />} />
