@@ -18,7 +18,7 @@ createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Routes>
         <Route element={<App />}>
-          <Route path=":category?/:limit?" element={<HomePage />} />
+          <Route path="products?/:category?/:limit?" element={<HomePage />} />
           <Route path="product/:id" element={<ProductPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="settings" element={<SettingsPage />} />
