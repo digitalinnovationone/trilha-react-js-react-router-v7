@@ -5,32 +5,39 @@ import ChartIcon from "../../assets/icons/chart.svg";
 import EmailIcon from "../../assets/icons/email.svg";
 import NotificationIcon from "../../assets/icons/notification.svg";
 import SettingsIcon from "../../assets/icons/settings.svg";
+import { NavLink } from "react-router";
 import "./styles.css";
 
 const pages = [
   {
     id: "home",
     icon: HomeIcon,
+    path: "/",
   },
   {
     id: "coupon",
     icon: CouponIcon,
+    path: "admin/store/coupons",
   },
   {
     id: "dashboard",
     icon: ChartIcon,
+    path: "dashboard",
   },
   {
     id: "messages",
     icon: EmailIcon,
+    path: "admin/store/messages",
   },
   {
     id: "notifications",
     icon: NotificationIcon,
+    path: "notifications",
   },
   {
     id: "settings",
     icon: SettingsIcon,
+    path: "settings",
   },
 ];
 
@@ -38,17 +45,25 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <img src={Logo} alt="Logo DIO Store" />
-      {pages.map(({ id, icon }, index) => (
-        <img
-          key={id}
-          src={icon}
-          className={`navbar__icon ${
-            index === 0 ? "navbar__icon--active" : ""
-          }`}
-        />
+      {pages.map(({ id, icon, path }) => (
+        <NavLink
+          to={path}
+          className={({ isActive }) =>
+            `navbar__icon ${isActive ? "navbar__icon--active" : ""}`
+          }
+        >
+          {({ isActive }) => (
+            <img
+              key={id}
+              src={icon}
+              className={isActive ? "navbar__icon--white" : ""}
+            />
+          )}
+        </NavLink>
       ))}
     </nav>
   );
 };
 
 export default Navbar;
+

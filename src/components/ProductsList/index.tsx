@@ -39,7 +39,7 @@ const ProductsList: FC<Props> = ({ category, limit }) => {
       setProducts([]);
       setLoading(false);
     }
-  }, [category]);
+  }, [category, limit]);
 
   const filteredProducts = products.filter((p) =>
     p.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -60,6 +60,7 @@ const ProductsList: FC<Props> = ({ category, limit }) => {
           {filteredProducts.map((product) => (
             <ProductItem
               key={product.id}
+              id={product.id}
               image={product.image}
               title={product.title}
               price={product.price}

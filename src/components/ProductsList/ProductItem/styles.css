@@ -26,3 +26,11 @@
   font-size: 1rem;
 }
 
+.product__link {
+  font-size: 1.25rem;
+  color: #ea7c69;
+}
+
+.product__button {
+  margin-top: 1rem;
+}

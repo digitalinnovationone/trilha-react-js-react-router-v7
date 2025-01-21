@@ -1,6 +1,5 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 import App from "./App.tsx";
 import CouponsPage from "./pages/Coupons/index.tsx";
@@ -13,13 +12,15 @@ import OrdersReport from "./components/Dashboard/OrdersReport/index.tsx";
 import CustomersReport from "./components/Dashboard/CustomersReport/index.tsx";
 import ProductPage from "./pages/Product/index.tsx";
 import ReportExporterPage from "./pages/ReportExporter/index.tsx";
+import PageNotFound from "./pages/PageNotFound/index.tsx";
+import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route element={<App />}>
-          <Route path="products?/:category?/:limit?" element={<HomePage />} />
+          <Route index element={<HomePage />} />
           <Route path="product/:id" element={<ProductPage />} />
           <Route path="notifications" element={<NotificationsPage />} />
           <Route path="settings" element={<SettingsPage />} />
@@ -35,6 +36,7 @@ createRoot(document.getElementById("root")!).render(
               element={<ReportExporterPage />}
             />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

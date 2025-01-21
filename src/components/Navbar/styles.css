@@ -13,10 +13,14 @@
   width: 1.5rem;
   height: 1.5rem;
   padding: 1rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 
 .navbar__icon--active {
-  background-color: #543C3C;
+  background-color: #543c3c;
+}
+
+.navbar__icon--white {
+  filter: brightness(2);
 }
