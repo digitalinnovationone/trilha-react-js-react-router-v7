@@ -1,10 +1,12 @@
 import { FormEvent, useState } from "react";
 import "./styles.css";
+import { useNavigate } from "react-router";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -27,7 +29,8 @@ const LoginForm = () => {
       }
 
       const data = await res.json();
-      console.log("User Token:", data);
+      navigate("/");
+      console.log("User Token:", data.token);
     } catch (err) {
       alert("Error to sign in");
       console.error(err);
@@ -39,6 +42,7 @@ const LoginForm = () => {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <input
+        required
         className="login-form__input"
         type="text"
         name="username"
@@ -47,6 +51,7 @@ const LoginForm = () => {
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
+        required
         className="login-form__input"
         type="password"
         name="email"
