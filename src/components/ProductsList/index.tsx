@@ -3,6 +3,7 @@ import ProductItem from "./ProductItem";
 import { Product } from "../../types/product";
 import "./styles.css";
 import SearchBar from "../SearchBar";
+import { useSearchParams } from "react-router";
 
 type Props = {
   category: string;
@@ -12,7 +13,12 @@ type Props = {
 const ProductsList: FC<Props> = ({ category, limit }) => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<Product[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
+
+  const [searchParams] = useSearchParams();
+
+  const [searchTerm, setSearchTerm] = useState(
+    searchParams.get("search") || ""
+  );
 
   useEffect(() => {
     setLoading(true);
