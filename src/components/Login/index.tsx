@@ -29,7 +29,7 @@ const LoginForm = () => {
       }
 
       const data = await res.json();
-      navigate("/");
+      navigate("/", { state: { token: data.token } });
       console.log("User Token:", data.token);
     } catch (err) {
       alert("Error to sign in");

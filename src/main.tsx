@@ -13,8 +13,8 @@ import CustomersReport from "./components/Dashboard/CustomersReport/index.tsx";
 import ProductPage from "./pages/Product/index.tsx";
 import ReportExporterPage from "./pages/ReportExporter/index.tsx";
 import PageNotFound from "./pages/PageNotFound/index.tsx";
-import "./index.css";
 import LoginPage from "./pages/LoginPage/index.tsx";
+import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
