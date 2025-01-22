@@ -1,12 +1,12 @@
 import { FormEvent, useState } from "react";
+import { useAuth } from "../../hooks/useAuth";
 import "./styles.css";
-import { useNavigate } from "react-router";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,8 +29,7 @@ const LoginForm = () => {
       }
 
       const data = await res.json();
-      navigate("/", { state: { token: data.token } });
-      console.log("User Token:", data.token);
+      login(data.token);
     } catch (err) {
       alert("Error to sign in");
       console.error(err);

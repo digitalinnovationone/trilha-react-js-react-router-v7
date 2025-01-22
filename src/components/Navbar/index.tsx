@@ -47,17 +47,14 @@ const Navbar = () => {
       <img src={Logo} alt="Logo DIO Store" />
       {pages.map(({ id, icon, path }) => (
         <NavLink
+          key={id}
           to={path}
           className={({ isActive }) =>
             `navbar__icon ${isActive ? "navbar__icon--active" : ""}`
           }
         >
           {({ isActive }) => (
-            <img
-              key={id}
-              src={icon}
-              className={isActive ? "navbar__icon--white" : ""}
-            />
+            <img src={icon} className={isActive ? "navbar__icon--white" : ""} />
           )}
         </NavLink>
       ))}

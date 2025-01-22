@@ -13,35 +13,46 @@ import CustomersReport from "./components/Dashboard/CustomersReport/index.tsx";
 import ProductPage from "./pages/Product/index.tsx";
 import ReportExporterPage from "./pages/ReportExporter/index.tsx";
 import PageNotFound from "./pages/PageNotFound/index.tsx";
-import LoginPage from "./pages/LoginPage/index.tsx";
 import "./index.css";
+import LoginPage from "./pages/LoginPage/index.tsx";
+import { AuthProvider } from "./contexts/AuthContext.tsx";
+import PublicRoute from "./components/Route/PublicRoute/index.tsx";
+import PrivateRoute from "./components/Route/PrivateRoute/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="signin" element={<LoginPage />} />
-        <Route path="*" element={<PageNotFound />} />
-        <Route element={<App />}>
-          <Route index element={<HomePage />} />
-          <Route path="product/:id" element={<ProductPage />} />
-          <Route path="notifications" element={<NotificationsPage />} />
-          <Route path="settings" element={<SettingsPage />} />
-          <Route path="admin/store">
-            <Route path="coupons" element={<CouponsPage />} />
-            <Route path="messages" element={<MessagesPage />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<PublicRoute />}>
+            <Route path="signin" element={<LoginPage />} />
           </Route>
-          <Route path="dashboard" element={<DashboardPage />}>
-            <Route index element={<OrdersReport />} />
-            <Route path="customers" element={<CustomersReport />} />
-            <Route
-              path="reports/export/file/*"
-              element={<ReportExporterPage />}
-            />
+
+          <Route element={<PrivateRoute />}>
+            <Route element={<App />}>
+              <Route index element={<HomePage />} />
+              <Route path="product/:id" element={<ProductPage />} />
+              <Route path="notifications" element={<NotificationsPage />} />
+              <Route path="settings" element={<SettingsPage />} />
+              <Route path="admin/store">
+                <Route path="coupons" element={<CouponsPage />} />
+                <Route path="messages" element={<MessagesPage />} />
+              </Route>
+              <Route path="dashboard" element={<DashboardPage />}>
+                <Route index element={<OrdersReport />} />
+                <Route path="customers" element={<CustomersReport />} />
+                <Route
+                  path="reports/export/file/*"
+                  element={<ReportExporterPage />}
+                />
+              </Route>
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   </StrictMode>
 );
 
